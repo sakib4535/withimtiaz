@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Hasnain Imtiaz • Communication Data Scientist | Neural Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&display=swap" rel="stylesheet" />
     <style>
+        /* ===== ROOT ===== */
         :root {
             --primary: #60a5fa;
             --primary-dark: #2563eb;
@@ -31,12 +32,12 @@
             --ease-spring: cubic-bezier(0.22, 1.2, 0.36, 1.1);
         }
 
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
             background: var(--bg-dark);
@@ -49,7 +50,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ========== CUSTOM CURSOR ========== */
+        /* ===== CUSTOM CURSOR ===== */
         #custom-cursor {
             position: fixed;
             top: 0;
@@ -93,7 +94,7 @@
             }
         }
 
-        /* ========== AURORA OVERLAY ========== */
+        /* ===== AURORA OVERLAY ===== */
         #aurora-overlay {
             position: fixed;
             inset: 0;
@@ -126,7 +127,6 @@
                 opacity: 0.45;
             }
         }
-
         #neural-bg {
             position: fixed;
             top: 0;
@@ -152,7 +152,7 @@
             z-index: 3;
         }
 
-        /* ========== NAVBAR ========== */
+        /* ===== NAVBAR ===== */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -268,7 +268,7 @@
             transform: translateY(-2px);
         }
 
-        /* ========== HERO ========== */
+        /* ===== HERO ===== */
         .hero {
             display: flex;
             align-items: center;
@@ -509,7 +509,7 @@
             box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
         }
 
-        /* ========== SECTION TITLES ========== */
+        /* ===== SECTION TITLES ===== */
         .section-title {
             font-family: 'Playfair Display', 'Cinzel', serif;
             font-size: 2.8rem;
@@ -541,7 +541,7 @@
             }
         }
 
-        /* ========== SCROLL REVEAL ========== */
+        /* ===== SCROLL REVEAL ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -579,7 +579,7 @@
             transform: scale(1);
         }
 
-        /* ========== ABOUT SECTION ========== */
+        /* ===== ABOUT ===== */
         .about-compact {
             display: grid;
             grid-template-columns: 1.4fr 0.8fr;
@@ -810,7 +810,7 @@
             color: #fff;
         }
 
-        /* ========== ABOUT MODAL ========== */
+        /* ===== ABOUT MODAL ===== */
         .about-detail-modal {
             position: fixed;
             top: 0;
@@ -929,7 +929,7 @@
             margin-right: 0.4rem;
         }
 
-        /* ========== SKILLS ========== */
+        /* ===== SKILLS ===== */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -982,7 +982,7 @@
             color: #fff;
         }
 
-        /* ========== DASHBOARDS ========== */
+        /* ===== DASHBOARDS ===== */
         .dashboards-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1243,7 +1243,7 @@
             }
         }
 
-        /* ========== TECH BREAKDOWN ========== */
+        /* ===== TECH BREAKDOWN ===== */
         .tech-breakdown-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -1362,7 +1362,7 @@
             background: linear-gradient(90deg, #F37626, var(--cyan));
         }
 
-        /* ========== EDUCATION ========== */
+        /* ===== EDUCATION ===== */
         .education-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1462,146 +1462,259 @@
             color: var(--purple);
         }
 
-        /* ========== GAME TIMELINE ========== */
+        /* ============================================================
+                   EXPERIENCE — BEAUTIFIED TIMELINE
+                   ============================================================ */
         .game-timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 3rem auto 0;
+            padding: 2rem 0;
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
-            max-width: 900px;
-            margin: 2rem auto 0;
-            position: relative;
+            gap: 2.8rem;
         }
+
+        /* ——— central glow line ——— */
         .game-timeline::before {
             content: '';
             position: absolute;
-            left: 24px;
-            top: 20px;
-            bottom: 20px;
+            left: 50%;
+            top: 0;
+            bottom: 0;
             width: 3px;
             background: linear-gradient(to bottom, var(--cyan), var(--purple), var(--pink));
             border-radius: 3px;
-            box-shadow: 0 0 16px var(--cyan), 0 0 40px rgba(167, 143, 255, 0.3);
-            z-index: 1;
+            box-shadow: 0 0 20px var(--cyan), 0 0 40px rgba(167, 143, 255, 0.4);
             animation: timelineGlow 3s ease-in-out infinite;
+            transform: translateX(-50%);
+            z-index: 1;
         }
         @keyframes timelineGlow {
             0%,
             100% {
-                box-shadow: 0 0 16px var(--cyan), 0 0 40px rgba(167, 143, 255, 0.3);
+                box-shadow: 0 0 20px var(--cyan), 0 0 40px rgba(167, 143, 255, 0.4);
             }
             50% {
-                box-shadow: 0 0 28px var(--cyan), 0 0 60px rgba(255, 110, 247, 0.4);
+                box-shadow: 0 0 35px var(--cyan), 0 0 65px rgba(255, 110, 247, 0.5);
             }
         }
+
+        /* ——— card base ——— */
         .game-exp-card {
             position: relative;
+            width: 45%;
             background: rgba(10, 25, 45, 0.65);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border-radius: 1.2rem;
-            padding: 1rem 1.2rem 1rem 2.8rem;
+            border-radius: 1.8rem;
+            padding: 1.8rem 2rem;
             border: 1px solid rgba(0, 200, 255, 0.25);
-            transition: all 0.3s var(--ease-out-expo);
-            margin-left: 0.5rem;
+            transition: all 0.4s var(--ease-out-expo);
             z-index: 2;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        .game-exp-card.left {
+            margin-left: 0;
+            margin-right: auto;
+            clear: both;
+        }
+        .game-exp-card.right {
+            margin-left: auto;
+            margin-right: 0;
+            clear: both;
         }
         .game-exp-card:hover {
-            transform: translateX(10px);
+            transform: translateY(-8px) scale(1.01);
             border-color: var(--cyan);
-            background: rgba(15, 35, 55, 0.85);
-            box-shadow: 0 10px 30px rgba(0, 200, 255, 0.25);
+            background: rgba(15, 35, 55, 0.88);
+            box-shadow: 0 20px 50px rgba(0, 200, 255, 0.3);
         }
+
+        /* ——— connecting dot ——— */
         .game-exp-dot {
             position: absolute;
-            left: -0.8rem;
-            top: 1.2rem;
-            width: 16px;
-            height: 16px;
+            top: 2rem;
+            width: 18px;
+            height: 18px;
             background: var(--cyan);
             border-radius: 50%;
             border: 2px solid #03080f;
-            box-shadow: 0 0 16px var(--cyan), 0 0 30px rgba(0, 200, 255, 0.5);
+            box-shadow: 0 0 20px var(--cyan), 0 0 40px rgba(0, 200, 255, 0.5);
             z-index: 3;
-            transition: all 0.3s;
+            transition: all 0.35s;
+        }
+        .game-exp-card.left .game-exp-dot {
+            right: -2.2rem;
+            left: auto;
+        }
+        .game-exp-card.right .game-exp-dot {
+            left: -2.2rem;
+            right: auto;
         }
         .game-exp-card:hover .game-exp-dot {
-            box-shadow: 0 0 24px var(--cyan), 0 0 45px rgba(0, 200, 255, 0.7);
-            transform: scale(1.3);
+            box-shadow: 0 0 30px var(--cyan), 0 0 60px rgba(0, 200, 255, 0.8);
+            transform: scale(1.4);
+            background: #fff;
         }
+
+        /* ——— header ——— */
         .game-exp-header {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.3rem;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.6rem 1rem;
+            margin-bottom: 0.4rem;
         }
         .game-exp-role {
-            font-size: 1.1rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff, #80e8ff);
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #fff 60%, var(--cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .game-exp-period {
-            font-size: 0.7rem;
-            background: rgba(0, 200, 255, 0.2);
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            color: var(--cyan);
+            font-size: 0.8rem;
             font-weight: 600;
+            color: var(--cyan);
+            background: rgba(0, 200, 255, 0.12);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(0, 200, 255, 0.25);
+            white-space: nowrap;
+            -webkit-text-fill-color: var(--cyan);
         }
+
+        /* ——— company ——— */
         .game-exp-company {
-            font-size: 0.85rem;
-            color: #b0e0ff;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--purple);
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
         }
         .game-exp-company i {
-            font-size: 0.8rem;
+            color: var(--cyan);
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
+
+        /* ——— tasks ——— */
         .game-exp-tasks {
             list-style: none;
-            margin: 0.5rem 0;
+            padding: 0;
+            margin: 0 0 1.2rem 0;
         }
         .game-exp-tasks li {
-            font-size: 0.8rem;
-            color: rgba(200, 230, 255, 0.85);
-            padding-left: 1rem;
             position: relative;
-            margin-bottom: 0.3rem;
+            padding-left: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: rgba(200, 230, 255, 0.9);
         }
         .game-exp-tasks li::before {
             content: '▹';
             position: absolute;
             left: 0;
             color: var(--cyan);
-            font-size: 0.7rem;
+            font-size: 1rem;
+            opacity: 0.8;
         }
+        .game-exp-tasks li strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ——— skill tags ——— */
         .game-exp-skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.4rem;
+            gap: 0.5rem;
+            margin-top: 0.2rem;
         }
         .game-skill-tag {
-            background: rgba(0, 200, 255, 0.1);
-            font-size: 0.65rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            color: #a0e0ff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: rgba(0, 200, 255, 0.08);
+            color: #b0e0ff;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            border: 1px solid rgba(0, 200, 255, 0.15);
+            letter-spacing: 0.3px;
             transition: all 0.3s;
-            border: 1px solid transparent;
+            text-transform: uppercase;
         }
-        .game-exp-card:hover .game-skill-tag {
-            background: rgba(0, 200, 255, 0.18);
-            border-color: rgba(0, 200, 255, 0.3);
+        .game-skill-tag:hover {
+            background: rgba(0, 200, 255, 0.2);
+            border-color: var(--cyan);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 200, 255, 0.2);
         }
 
-        /* ========== CERTIFICATIONS ========== */
+        /* ——— subtle card accent line ——— */
+        .game-exp-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 1.8rem 0 0 1.8rem;
+            background: linear-gradient(to bottom, var(--cyan), var(--purple));
+            opacity: 0.3;
+            transition: opacity 0.4s;
+        }
+        .game-exp-card:hover::after {
+            opacity: 0.9;
+        }
+
+        /* ——— responsive ——— */
+        @media (max-width: 850px) {
+            .game-timeline::before {
+                left: 24px;
+                transform: none;
+            }
+            .game-exp-card {
+                width: 85%;
+                margin-left: 3rem !important;
+                margin-right: auto !important;
+            }
+            .game-exp-card.left .game-exp-dot,
+            .game-exp-card.right .game-exp-dot {
+                left: -1.8rem;
+                right: auto;
+            }
+            .game-exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .game-exp-period {
+                white-space: normal;
+            }
+        }
+        @media (max-width: 550px) {
+            .game-exp-card {
+                width: 92%;
+                margin-left: 2rem !important;
+                padding: 1.2rem 1.2rem;
+            }
+            .game-exp-role {
+                font-size: 1.1rem;
+            }
+            .game-exp-tasks li {
+                font-size: 0.82rem;
+            }
+        }
+
+        /* ===== CERTIFICATIONS ===== */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1697,7 +1810,7 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
-        /* ========== VIDEOS ========== */
+        /* ===== VIDEOS ===== */
         .videos-section {
             margin: 6rem 0;
         }
@@ -1776,7 +1889,7 @@
             text-shadow: 0 0 60px rgba(0, 200, 255, 0.9);
         }
 
-        /* ========== CONTACT ========== */
+        /* ===== CONTACT ===== */
         .contact-box {
             background: rgba(10, 25, 45, 0.55);
             backdrop-filter: blur(22px);
@@ -1861,7 +1974,7 @@
             box-shadow: 0 18px 45px rgba(0, 200, 255, 0.55);
         }
 
-        /* ========== FOOTER ========== */
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             margin-top: 5rem;
@@ -1900,7 +2013,7 @@
             box-shadow: 0 0 50px var(--cyan), 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* ========== PRINCE OF PERSIA GAME MODAL ========== */
+        /* ===== GAME MODAL ===== */
         .game-modal {
             position: fixed;
             top: 0;
@@ -2045,7 +2158,7 @@
             transform: translateY(-1px);
         }
 
-        /* ========== SHOOTING STARS ========== */
+        /* ===== SHOOTING STARS ===== */
         .shooting-star {
             position: fixed;
             pointer-events: none;
@@ -2082,7 +2195,7 @@
             border-radius: 1px;
         }
 
-        /* ========== PARTICLE BURST ========== */
+        /* ===== PARTICLE BURST ===== */
         .particle-burst {
             position: fixed;
             pointer-events: none;
@@ -2100,7 +2213,7 @@
             }
         }
 
-        /* ========== RESPONSIVE ========== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1200px) {
             .dashboards-row {
                 grid-template-columns: 1fr;
@@ -2128,12 +2241,6 @@
                 flex-direction: column;
                 gap: 0.5rem;
                 padding: 0.5rem 1rem;
-            }
-            .game-timeline::before {
-                left: 16px;
-            }
-            .game-exp-card {
-                padding-left: 2rem;
             }
             .tech-breakdown-row {
                 grid-template-columns: 1fr;
@@ -2168,6 +2275,7 @@
     <div id="vignette"></div>
 
     <div class="container">
+        <!-- NAVBAR -->
         <nav class="navbar reveal" id="navbar">
             <div class="logo"><i class="fas fa-brain"></i> Hasnain.</div>
             <div class="nav-links">
@@ -2179,6 +2287,7 @@
             </div>
         </nav>
 
+        <!-- HERO -->
         <section id="home" class="hero">
             <div class="hero-text reveal-left">
                 <div class="greeting" id="greeting"><i class="fas fa-hand-peace"></i> HELLO, I'M</div>
@@ -2203,13 +2312,14 @@
             </div>
         </section>
 
+        <!-- ABOUT -->
         <section id="about" class="reveal-scale">
             <h2 class="section-title">About Me</h2>
             <div class="about-compact">
                 <div class="about-bio-card">
                     <div class="bio-header"><i class="fas fa-user-astronaut"></i><h3>Research Profile</h3></div>
                     <div class="bio-scroll">
-                        <p><strong>Hasnain Imtiaz</strong> — Communication Data Scientist & Research Methodologist. I bridge <strong>machine learning, NLP, and strategic communication</strong> to generate actionable insights from complex data ecosystems.</p>
+                        <p><strong>Hasnain Imtiaz</strong> — Communication Data Scientist &amp; Research Methodologist. I bridge <strong>machine learning, NLP, and strategic communication</strong> to generate actionable insights from complex data ecosystems.</p>
                         <p>Currently serving as <strong>Communication Associate at PPRC</strong> (under Dr. Hossain Zillur Rahman), working on policy communication, knowledge dissemination, and evidence synthesis for UNICEF, IDRC, and UHC initiatives.</p>
                         <p><strong>CGPA 3.43</strong> — Joint Merit Scholarship awarded by the University of Dhaka. 5+ years experience in research design, statistical analysis, and strategic communication.</p>
                     </div>
@@ -2217,9 +2327,9 @@
                         <span class="bio-tag"><i class="fas fa-trophy"></i> Merit Scholar</span>
                         <span class="bio-tag"><i class="fas fa-university"></i> Univ. of Dhaka</span>
                         <span class="bio-tag"><i class="fas fa-file-alt"></i> Policy Briefs</span>
-                        <span class="bio-tag"><i class="fas fa-handshake"></i> UNICEF & IDRC</span>
+                        <span class="bio-tag"><i class="fas fa-handshake"></i> UNICEF &amp; IDRC</span>
                         <span class="bio-tag"><i class="fas fa-globe-asia"></i> IFES</span>
-                        <span class="bio-tag"><i class="fas fa-chart-bar"></i> 200+ Research</span>
+                        <span class="bio-tag"><i class="fas fa-chart-bar"></i> 100+ Research</span>
                     </div>
                     <div style="margin-top:0.8rem;">
                         <button class="read-more-btn" id="aboutReadMoreBtn"><i class="fas fa-book-open"></i> Read More About Me</button>
@@ -2229,13 +2339,13 @@
                     <div>
                         <div class="about-sidebar-title"><i class="fas fa-chart-simple"></i> Impact Metrics</div>
                         <div class="stats-compact">
-                            <div class="stat-item"><span class="num">5+</span><span class="lbl">Years Exp.</span></div>
+                            <div class="stat-item"><span class="num">4+</span><span class="lbl">Years Exp.</span></div>
                             <div class="stat-item"><span class="num">200+</span><span class="lbl">Research</span></div>
-                            <div class="stat-item"><span class="num">80+</span><span class="lbl">ML Projects</span></div>
+                            <div class="stat-item"><span class="num">30+</span><span class="lbl">ML Projects</span></div>
                         </div>
                     </div>
                     <div>
-                        <div class="about-sidebar-title"><i class="fas fa-microscope"></i> Research & Technical Core</div>
+                        <div class="about-sidebar-title"><i class="fas fa-microscope"></i> Research &amp; Technical Core</div>
                         <div class="compacts-grid">
                             <div class="comp-item-compact"><i class="fas fa-chart-line"></i> Predictive Modeling</div>
                             <div class="comp-item-compact"><i class="fas fa-comment-dots"></i> Sentiment Analysis</div>
@@ -2253,6 +2363,7 @@
             </div>
         </section>
 
+        <!-- ABOUT MODAL -->
         <div class="about-detail-modal" id="aboutDetailModal">
             <div class="about-detail-content">
                 <button class="about-detail-close" id="aboutDetailClose">&times;</button>
@@ -2269,18 +2380,43 @@
             </div>
         </div>
 
-        <section id="skills" class="reveal-scale"><h2 class="section-title">Skills & Tools</h2><div class="skills-container" id="skillsContainer"></div></section>
+        <!-- SKILLS -->
+        <section id="skills" class="reveal-scale"><h2 class="section-title">Skills &amp; Tools</h2><div class="skills-container" id="skillsContainer"></div></section>
+
+        <!-- DASHBOARDS -->
         <section id="dashboards" class="reveal-scale"><h2 class="section-title">Project Data Visualizations</h2><div class="dashboards-row" id="dashboardsRow"></div></section>
+
+        <!-- TECH BREAKDOWN -->
         <section id="tech-usage" class="reveal-scale"><h2 class="section-title">Tech Usage Breakdown</h2><div class="tech-breakdown-row" id="techBreakdownRow"></div></section>
+
+        <!-- EDUCATION -->
         <section id="education" class="reveal-scale"><h2 class="section-title">Education</h2><div class="education-grid" id="educationGrid"></div></section>
-        <section id="experience" class="reveal-scale"><h2 class="section-title">Professional Timeline</h2><div id="gameExperienceContainer" class="game-timeline"></div></section>
-        <section id="videos" class="videos-section reveal-scale"><h2 class="section-title">Video Highlights & Demos</h2><p style="text-align:center;max-width:700px;margin:0 auto 2rem;color:var(--text-muted);font-size:1.1rem;">Immersive showcases of my work in communication data, sentiment systems, and strategic tech projects.</p><div class="videos-grid" id="videosGrid"></div></section>
+
+        <!-- ============================================================
+        EXPERIENCE — BEAUTIFIED TIMELINE
+        ============================================================ -->
+        <section id="experience" class="reveal-scale">
+            <h2 class="section-title">Professional Timeline</h2>
+            <div id="gameExperienceContainer" class="game-timeline"></div>
+        </section>
+
+        <!-- VIDEOS -->
+        <section id="videos" class="videos-section reveal-scale"><h2 class="section-title">Video Highlights &amp; Demos</h2><p style="text-align:center;max-width:700px;margin:0 auto 2rem;color:var(--text-muted);font-size:1.1rem;">Immersive showcases of my work in communication data, sentiment systems, and strategic tech projects.</p><div class="videos-grid" id="videosGrid"></div></section>
+
+        <!-- PROJECTS -->
         <section id="projects" class="reveal-scale"><h2 class="section-title">Project Constellation: A Symphony of My Stars</h2><div id="projectsGrid"></div></section>
+
+        <!-- CERTIFICATIONS -->
         <section id="certifications" class="reveal-scale"><h2 class="section-title">Certifications</h2><div class="cert-grid" id="certificationsGrid"></div></section>
+
+        <!-- CONTACT -->
         <section id="contact" class="reveal-scale"><h2 class="section-title">Get In Touch</h2><div class="contact-box"><i class="fas fa-paper-plane" style="font-size:3rem;color:#00c8ff;"></i><h3 style="margin:1.2rem 0;font-size:1.8rem;">Let's collaborate</h3><form class="contact-form" id="contactForm"><input type="text" placeholder="Your Name" required><input type="email" placeholder="Your Email" required><textarea rows="5" placeholder="Tell me about your project..." required></textarea><button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button></form><div class="contact-links"><a href="https://www.facebook.com/profile.php?id=61574935805098" target="_blank" style="color:#00c8ff;"><i class="fab fa-facebook fa-2x"></i></a><a href="https://github.com/sakib4535" target="_blank" style="color:#00c8ff;"><i class="fab fa-github fa-2x"></i></a><a href="mailto:sakibimtiaz669@gmail.com" style="color:#00c8ff;"><i class="far fa-envelope fa-2x"></i></a></div></div></section>
+
+        <!-- FOOTER -->
         <footer><p>© 2025 Hasnain Imtiaz. <a href="https://www.facebook.com/profile.php?id=61574935805098" style="color:#00c8ff;">Facebook</a></p></footer>
     </div>
 
+    <!-- SCROLL TOP -->
     <button class="scroll-top-btn" id="scrollTopBtn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <script>
@@ -2532,34 +2668,108 @@
                 `<div class="education-card"><div class="education-icon-wrapper"><i class="fas ${e.icon}"></i></div><h3 class="education-degree">${e.degree}</h3><p class="education-school">${e.school}</p><span class="education-period">${e.period}</span><p class="education-desc">${e.desc}</p><div class="education-achievement"><i class="fas fa-star"></i> ${e.achievement}</div></div>`
                 ).join('');
 
-            const gameExpData = [{ role: 'Project Comms Manager & Comms Associate', company: 'Power and Participation Research Center',
-                    period: '2024 – Present', tasks: ['Strategic communication & media engagement',
-                        'Reports & proposals for central ops'], skills: ['Strategic Comms', 'Media Engagement',
-                        'Report Writing'] }, { role: 'Research Officer - Statistician',
-                    company: 'International Online Journal Hub', period: '2024 – Present',
-                    tasks: ['Survival analysis on medical data', 'Led interdisciplinary publications',
-                        'Automated data pipelines'], skills: ['Survival Analysis', 'Medical ML', 'APA/MLA'] },
-                { role: 'Project Contributor - ML', company: 'Omdena Egypt (Remote)', period: '2023 – 2024',
-                    tasks: ['Visualized user interaction data', 'Built sentiment models',
-                        'Collaborated with 30+ scientists'], skills: ['Python', 'Sentiment Analysis', 'Team Collab'] },
-                { role: 'Research Assistant Intern', company: 'Microgovernance Research Initiatives', period: '2021',
-                    tasks: ['Media violence research', 'Literature review for USAID/IFES'],
-                skills: ['Content Analysis', 'Lit Review'] }, { role: 'Project Management Intern',
-                    company: 'The Earth - NGO', period: '2021', tasks: ['Facilitated 200+ youth focus groups',
-                        'Stakeholder analysis'], skills: ['Focus Groups', 'Climate Action'] }
-            ];
+            // ============================================================
+            // EXPERIENCE DATA — BEAUTIFIED WITH RICH TEXT
+            // ============================================================
+            const gameExpData = [{
+                role: 'Co‑Founder &amp; Principal Consultant',
+                company: 'Relogic Solutions',
+                period: '2023 – Present',
+                tasks: [
+                    'Lead research projects for public &amp; private <strong>medical doctors</strong>.',
+                    'Develop <strong>ML solutions</strong> for clients from USA and Australia.',
+                    'Oversee project lifecycles from <strong>data collection</strong> to <strong>deployment</strong>.'
+                ],
+                skills: ['ML Development', 'Research Consulting', 'International Clients', 'Project Management'],
+                side: 'left'
+            },{
+                role: 'Chief Operating Officer (COO)',
+                company: 'Archon Digital IT (New Start-Up)',
+                period: '2026 – Present',
+                tasks: [
+                    'Supporting organizational growth by establishing <strong>efficient operational processes</strong>, identifying <strong>emerging opportunities</strong>, and fostering <strong>strategic collaborations</strong> that accelerate business development.',
+'Managing <strong>strategic initiatives</strong> and <strong>operational excellence programs</strong> to strengthen market positioning, enhance stakeholder engagement, and support <strong>sustainable expansion</strong>.'
+],
+                skills: ['Operations', 'Team Leadership', 'Strategy', 'Scalability'],
+                side: 'right'
+            }, {
+                role: 'Project Communication Manager &amp; Communication Associate',
+                company: 'Power and Participation Research Center',
+                period: '2026 – Present',
+                tasks: [
+                    'Strategic communication & <strong>media engagement</strong> supporting organizational visibility, stakeholder alignment, and policy influence across development initiatives.',
+
+                    'Development of executive-level reports, research briefs, and strategic proposals for central operations and institutional decision-making.',
+
+                    'Leading the development of <strong>technological lifecycle systems</strong> and strengthening internal IT capabilities, including capacity building of technical staff to support scalable digital operations.',
+
+                    'Driving <strong>AI-enabled transformation initiatives</strong> within PPRC, including the design of social AI systems, research intelligence frameworks, and institutional knowledge activation strategies.',
+                ],
+                skills: ['Strategic Comms', 'Media Engagement', 'Report Writing'],
+                side: 'right'
+            }, {
+                role: 'Research Officer – Statistician',
+                company: 'International Online Journal Hub',
+                period: '2024 – Present',
+                tasks: [
+                    '<strong>Survival analysis</strong> on medical data.',
+                    'Led interdisciplinary publications.',
+                    'Automated <strong>data pipelines</strong>.'
+                ],
+                skills: ['Survival Analysis', 'Medical ML', 'APA/MLA'],
+                side: 'left'
+            }, {
+                role: 'Project Contributor – ML',
+                company: 'Omdena Egypt (Remote)',
+                period: '2023 – 2024',
+                tasks: [
+                    'Visualized user interaction data.',
+                    'Built <strong>sentiment models</strong>.',
+                    'Collaborated with 30+ scientists.'
+                ],
+                skills: ['Python', 'Sentiment Analysis', 'Team Collab'],
+                side: 'right'
+            }, {
+                role: 'Research Assistant Intern',
+                company: 'Microgovernance Research Initiatives',
+                period: '2021',
+                tasks: [
+                    'Media violence research.',
+                    'Literature review for <strong>USAID/IFES</strong>.'
+                ],
+                skills: ['Content Analysis', 'Lit Review'],
+                side: 'left'
+            }, {
+                role: 'Project Management Intern',
+                company: 'The Earth – NGO',
+                period: '2021',
+                tasks: [
+                    'Facilitated 200+ youth focus groups.',
+                    '<strong>Stakeholder analysis</strong>.'
+                ],
+                skills: ['Focus Groups', 'Climate Action'],
+                side: 'right'
+            }];
+
             const gameContainer = document.getElementById('gameExperienceContainer');
             if (gameContainer) {
                 gameContainer.innerHTML = gameExpData.map(exp => `
-            <div class="game-exp-card">
-              <div class="game-exp-dot"></div>
-              <div class="game-exp-header"><span class="game-exp-role">${exp.role}</span><span class="game-exp-period">${exp.period}</span></div>
-              <div class="game-exp-company"><i class="fas fa-building"></i> ${exp.company}</div>
-              <ul class="game-exp-tasks">${exp.tasks.map(t=>`<li>${t}</li>`).join('')}</ul>
-              <div class="game-exp-skills">${exp.skills.map(s=>`<span class="game-skill-tag">${s}</span>`).join('')}</div>
-            </div>`).join('');
+                    <div class="game-exp-card ${exp.side}">
+                        <div class="game-exp-dot"></div>
+                        <div class="game-exp-header">
+                            <span class="game-exp-role">${exp.role}</span>
+                            <span class="game-exp-period">${exp.period}</span>
+                        </div>
+                        <div class="game-exp-company"><i class="fas fa-building"></i> ${exp.company}</div>
+                        <ul class="game-exp-tasks">${exp.tasks.map(t => `<li>${t}</li>`).join('')}</ul>
+                        <div class="game-exp-skills">${exp.skills.map(s => `<span class="game-skill-tag">${s}</span>`).join('')}</div>
+                    </div>
+                `).join('');
             }
 
+            // ============================================================
+            // VIDEOS, PROJECTS, CERTIFICATIONS (unchanged)
+            // ============================================================
             const videoDemos = [{ title: "Sentiment Analysis Live Demo",
                 desc: "Real-time NLP pipeline processing social media data with neural visualizations.",
                 src: "gesture_object.mp4", type: "video" }, { title: "E-Governance Development Index: Bar Run",
@@ -2600,6 +2810,7 @@
         })();
     </script>
 
+    <!-- NEURAL BG -->
     <script>
         (function() { const canvas = document.getElementById('neural-bg'); const ctx = canvas.getContext('2d'); let W, H,
                 time = 0;
@@ -2710,6 +2921,7 @@
             draw(); })();
     </script>
 
+    <!-- PROJECT CONSTELLATION -->
     <script>
         (function() {
             const projectsData = [{ starName: "Sirius", title: "APT Detection",
@@ -2999,6 +3211,7 @@
         })();
     </script>
 
+    <!-- CERTIFICATIONS -->
     <script>
         (function() {
             const certGrid = document.getElementById('certificationsGrid');
