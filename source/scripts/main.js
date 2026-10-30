@@ -360,6 +360,96 @@
     });
   }
 
+  // Native touch scrolling, mouse dragging, and accessible carousel controls.
+  function initAnalystCarousel() {
+    const track = document.getElementById('analyst-track');
+    if (!track) return;
+    const carousel = track.closest('.analyst-carousel');
+    const cards = Array.from(track.querySelectorAll('.analyst-card'));
+    const previous = carousel.querySelector('[data-analyst-prev]');
+    const next = carousel.querySelector('[data-analyst-next]');
+    const position = carousel.querySelector('[data-analyst-position]');
+    const dots = Array.from(carousel.querySelectorAll('[data-analyst-slide]'));
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let active = 0;
+    let frame = 0;
+    let drag = null;
+    let suppressClick = false;
+
+    function cardLeft(card) {
+      return card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+    }
+    function update() {
+      frame = 0;
+      const max = track.scrollWidth - track.clientWidth;
+      if (max <= 1 || track.scrollLeft <= 1) active = 0;
+      else if (track.scrollLeft >= max - 2) active = cards.length - 1;
+      else active = cards.reduce((best, card, index) =>
+        Math.abs(cardLeft(card) - track.scrollLeft) < Math.abs(cardLeft(cards[best]) - track.scrollLeft) ? index : best, 0);
+      previous.disabled = active === 0;
+      next.disabled = active === cards.length - 1;
+      const label = `${String(active + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+      if (position.textContent !== label) position.textContent = label;
+      dots.forEach((dot, i) => {
+        if (i === active) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    }
+    function goTo(index) {
+      const target = Math.max(0, Math.min(cards.length - 1, index));
+      track.scrollTo({ left: cardLeft(cards[target]), behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    }
+    previous.addEventListener('click', () => goTo(active - 1));
+    next.addEventListener('click', () => goTo(active + 1));
+    dots.forEach((dot, index) => dot.addEventListener('click', () => goTo(index)));
+    track.addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', () => { if (!frame) frame = requestAnimationFrame(update); });
+    track.addEventListener('keydown', event => {
+      if (event.target !== track) return;
+      const targets = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: cards.length - 1 };
+      if (!(event.key in targets)) return;
+      event.preventDefault();
+      goTo(targets[event.key]);
+    });
+    track.addEventListener('dragstart', event => event.preventDefault());
+    track.addEventListener('pointerdown', event => {
+      if (event.pointerType !== 'mouse' || event.button !== 0) return;
+      suppressClick = false;
+      drag = { id: event.pointerId, x: event.clientX, scroll: track.scrollLeft, moved: false };
+    });
+    track.addEventListener('pointermove', event => {
+      if (!drag || event.pointerId !== drag.id) return;
+      const distance = event.clientX - drag.x;
+      if (!drag.moved && Math.abs(distance) < 6) return;
+      if (!drag.moved) {
+        drag.moved = true;
+        track.setPointerCapture(event.pointerId);
+        track.classList.add('is-dragging');
+      }
+      event.preventDefault();
+      track.scrollLeft = drag.scroll - distance;
+    });
+    function finishDrag(event) {
+      if (!drag || event.pointerId !== drag.id) return;
+      const moved = drag.moved;
+      drag = null;
+      track.classList.remove('is-dragging');
+      if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
+      if (moved) {
+        suppressClick = true;
+        update();
+        goTo(active);
+        setTimeout(() => { suppressClick = false; }, 0);
+      }
+    }
+    window.addEventListener('pointerup', finishDrag);
+    track.addEventListener('pointercancel', finishDrag);
+    track.addEventListener('click', event => {
+      if (suppressClick) { event.preventDefault(); event.stopPropagation(); }
+    }, true);
+    update();
+  }
+
   // INITIALIZE ALL MODULES
   document.addEventListener('DOMContentLoaded', () => {
     initTimeTicker();
@@ -368,6 +458,7 @@
     initVideoTheater();
     initInquiryForm();
     initMobileMenu();
+    initAnalystCarousel();
 
     // Attach sound to interactive links & buttons
     document.querySelectorAll('a, button').forEach(btn => {
