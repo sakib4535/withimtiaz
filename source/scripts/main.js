@@ -6,33 +6,7 @@
 (function() {
   'use strict';
 
-  // 1. LIVE TIME INDICATOR (DHAKA, GMT+6)
-  function initTimeTicker() {
-    const timeEl = document.getElementById('liveTimeTicker');
-    if (!timeEl) return;
-
-    function update() {
-      const now = new Date();
-      // Format in UTC+6 (Dhaka)
-      const options = {
-        timeZone: 'Asia/Dhaka',
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      };
-      try {
-        const timeStr = new Intl.DateTimeFormat('en-GB', options).format(now);
-        timeEl.textContent = `${timeStr} [GMT+6]`;
-      } catch (e) {
-        timeEl.textContent = now.toTimeString().split(' ')[0] + ' [GMT+6]';
-      }
-    }
-    update();
-    setInterval(update, 1000);
-  }
-
-  // 2. TACTILE ACOUSTIC ENGINE (ZERO-ASSET SYNTHESIZER)
+  // 1. TACTILE ACOUSTIC ENGINE (ZERO-ASSET SYNTHESIZER)
   let audioCtx = null;
   function playClickSound(freq = 820, duration = 0.04) {
     try {
@@ -452,7 +426,6 @@
 
   // INITIALIZE ALL MODULES
   document.addEventListener('DOMContentLoaded', () => {
-    initTimeTicker();
     initCustomCursor();
     initEmailCopy();
     initVideoTheater();

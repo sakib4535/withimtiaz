@@ -26,27 +26,12 @@
       "Defect distribution",
       "NICU surveillance"
     ],
-    "chart": "Congenital heart disease patterns",
-    "sub": "Share of 61 reported cases · selected diagnoses",
-    "rows": [
-      [
-        "ASD",
-        36.1
-      ],
-      [
-        "VSD",
-        24.6
-      ],
-      [
-        "PDA",
-        19.7
-      ]
-    ],
-    "note": "Selected diagnoses; these categories do not represent all cases.",
+    "chart": "Comparative bar plot for PDA data",
+    "sub": "Eight patient groups · values shown in the source graph",
     "url": "https://iojh.com.bd/2025/03/23/common-pattern-of-congenital-heart-disease-with-outcome-in-sick-term-and-preterm-neonates-admitted-in-nicu-in-dhaka-bangladesh/",
-    "ext": "svg",
-    "caption": "Redrawn from reported IOJH results · percentages labeled",
-    "alt": "ASD: 36.1%; VSD: 24.6%; PDA: 19.7%"
+    "ext": "png",
+    "caption": "IOJH comparative bar plot for PDA data",
+    "alt": "Grouped bar chart comparing Size of PDA, PDA at 5 Days, and PDA Reduction Amount across eight patient groups."
   },
   {
     "id": "pci-outcomes",
@@ -59,31 +44,12 @@
       "Reperfusion outcomes",
       "Comparative analysis"
     ],
-    "chart": "Post-procedure outcomes by group",
-    "sub": "Reported patient percentages · Group I n=59; Group II n=45",
-    "rows": [
-      [
-        "TIMI III · Group I",
-        76.27
-      ],
-      [
-        "TIMI III · Group II",
-        48.89
-      ],
-      [
-        "Bleeding · Group I",
-        10.16
-      ],
-      [
-        "Bleeding · Group II",
-        28.89
-      ]
-    ],
-    "note": "Source group labels retained; TIMI III p=0.02; bleeding p=0.04.",
+    "chart": "Cox proportional hazards model for pPCI timing",
+    "sub": "Hazard ratios and 95% confidence intervals · timely, delayed, and late pPCI",
     "url": "https://iojh.com.bd/2025/03/23/short-term-outcome-of-pharmaco-invasive-strategy-pis-in-comparison-with-delayed-primary-pci-a-single-centre-study/",
-    "ext": "svg",
-    "caption": "Redrawn from reported IOJH results · percentages labeled",
-    "alt": "TIMI III · Group I: 76.27%; TIMI III · Group II: 48.89%; Bleeding · Group I: 10.16%; Bleeding · Group II: 28.89%"
+    "ext": "png",
+    "caption": "Cox proportional hazards model for pPCI timing",
+    "alt": "Forest plot showing hazard ratios with 95% confidence intervals for timely, delayed, and late pPCI."
   },
   {
     "id": "headache-profile",
@@ -96,31 +62,47 @@
       "Symptom profiling",
       "Observational study"
     ],
-    "chart": "Headache characteristics and symptoms",
-    "sub": "Percentage of 100 patients · DMCH, July–December 2013",
+    "chart": "Distribution of study patients by headache character",
+    "sub": "Number of patients by headache character · 100-patient study",
     "rows": [
       [
-        "Compressive pain",
+        "Compressive",
         61
       ],
       [
-        "Nausea",
-        60
-      ],
-      [
-        "Vertigo",
-        34
-      ],
-      [
-        "Photophobia",
+        "Pulsatile",
         33
+      ],
+      [
+        "Heavy",
+        14
+      ],
+      [
+        "Dull",
+        11
+      ],
+      [
+        "Penetrating",
+        6
+      ],
+      [
+        "Tingling",
+        4
+      ],
+      [
+        "Burning",
+        3
+      ],
+      [
+        "Electric shock",
+        2
       ]
     ],
-    "note": "Symptoms can overlap; percentages should not be summed.",
+    "note": "Counts may overlap because a patient could report more than one headache character.",
     "url": "https://iojh.com.bd/2025/03/23/clinical-profile-and-patterns-of-headache-in-patients-attending-a-tertiary-care-hospital/",
-    "ext": "svg",
-    "caption": "Redrawn from reported IOJH results · percentages labeled",
-    "alt": "Compressive pain: 61%; Nausea: 60%; Vertigo: 34%; Photophobia: 33%"
+    "ext": "png",
+    "caption": "IOJH distribution of study patients by headache character",
+    "alt": "Horizontal bar chart of headache character among study patients. Compressive is most frequent, followed by pulsatile, heavy, dull, penetrating, tingling, burning, and electric shock."
   },
   {
     "id": "semaglutide-outcomes",
